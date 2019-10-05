@@ -15,6 +15,9 @@ namespace Array
             {
                 Console.WriteLine(number);
             }
+
+            //Printing the length
+            Console.WriteLine("Array length is " + numbers.Length);
         }
     }
 }
