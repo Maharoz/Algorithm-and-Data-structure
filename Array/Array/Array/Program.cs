@@ -11,7 +11,7 @@ namespace Array
             numbers.insert(20);
             numbers.insert(30);
             numbers.insert(40);
-            numbers.removeAt(1);
+            Console.WriteLine(numbers.indexOf(30));
             numbers.print();
         }
     }
