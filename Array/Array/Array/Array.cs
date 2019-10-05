@@ -29,6 +29,21 @@ namespace Array
             count++;
         }
 
+        public void removeAt(int index)
+        {
+            if(index<0 ||index>=count)
+            {
+                throw new Exception();
+            }
+
+            for(int i=index; i < count; i++)
+            {
+                items[i] = items[i + 1];
+            }
+
+            count--;
+        }
+
         public void print()
         {
             for(int i = 0; i < count; i++)
