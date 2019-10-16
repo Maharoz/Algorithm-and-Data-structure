@@ -11,7 +11,10 @@ namespace Array
             numbers.insert(20);
             numbers.insert(30);
             numbers.insert(40);
-            Console.WriteLine(numbers.indexOf(30));
+            numbers.insert(50);
+            numbers.removeAt(1);
+
+            Console.WriteLine("Index of 30 is "+numbers.indexOf(30));
             numbers.print();
         }
     }
