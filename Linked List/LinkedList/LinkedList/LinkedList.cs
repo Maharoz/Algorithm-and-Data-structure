@@ -23,7 +23,7 @@ namespace LinkedList
         {
             Node node = new Node(item);
 
-            if(first == null)
+            if(isEmpty())
             {
                 first = node;
                 last = node;
@@ -33,6 +33,24 @@ namespace LinkedList
                 last.next = node;
                 last = node;
             }
+        }
+
+        public void addFirst(int item)
+        {
+            var node = new Node(item);
+
+            if (isEmpty())
+                first = last = node;
+            else
+            {
+                node.next = first;
+                first = node;
+            }
+        }
+
+        private Boolean isEmpty()
+        {
+            return first == null;
         }
     }
 }
