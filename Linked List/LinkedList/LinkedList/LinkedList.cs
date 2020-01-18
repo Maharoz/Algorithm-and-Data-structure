@@ -52,5 +52,20 @@ namespace LinkedList
         {
             return first == null;
         }
+
+        public int indexOf(int item)
+        {
+            int index = 0;
+            var current = first;
+            while (current != null)
+            {
+                if (current.value == item) return index;
+                current = current.next;
+                index++;
+            }
+            return -1;
+
+
+        }
     }
 }
