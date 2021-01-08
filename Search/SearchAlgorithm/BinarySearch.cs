@@ -15,7 +15,7 @@ namespace SearchAlgorithm
                 var middle = (left + right) / 2;
                 if (array[middle] == target)
                 {
-                    return middle;
+                    return middle; 
                 }
                 if (target < array[middle])
                 {

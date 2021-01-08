@@ -6,9 +6,9 @@ namespace SearchAlgorithm
     {
         static void Main(string[] args)
         {
-            int[] numbers = { 7, 1, 3, 6, 5, 4, 8 };
+            int[] numbers = { 3,5,6,9,11,18,20,21,24,30 };
             var search = new BinarySearch();
-            var index = search.binarySearch(numbers, 1);
+            var index = search.binarySearch(numbers, 6);
             Console.WriteLine(index);
         }
     }
