@@ -6,6 +6,7 @@ namespace SelectionSort
 {
     public class SelectionSort
     {
+        //7, 3, 1, 4, 6, 2, 3
         public void sort(int[] array)
         {
             for(int i = 0; i < array.Length; i++)
