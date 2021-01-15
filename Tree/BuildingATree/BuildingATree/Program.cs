@@ -16,7 +16,7 @@ namespace BuildingATree
             tree.insert(10);
 
 
-            Console.WriteLine(10);
+            Console.WriteLine(tree.find(10));
         }
     }
 }
