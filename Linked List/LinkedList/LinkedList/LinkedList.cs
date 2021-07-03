@@ -18,6 +18,7 @@ namespace LinkedList
     {
         private Node first;
         private Node last;
+        private int count=0;
 
         public void addLast(int item)
         {
@@ -33,6 +34,7 @@ namespace LinkedList
                 last.next = node;
                 last = node;
             }
+            count++;
         }
 
         public void addFirst(int item)
@@ -46,9 +48,10 @@ namespace LinkedList
                 node.next = first;
                 first = node;
             }
+            count++;
         }
 
-        private Boolean isEmpty()
+        private bool isEmpty()
         {
             return first == null;
         }
@@ -66,6 +69,88 @@ namespace LinkedList
             return -1;
 
 
+        }
+
+        public bool contains(int item)
+        {
+            return indexOf(item) != -1;
+
+        }
+
+        public void removeFirst()
+        {
+            if (isEmpty())
+                throw new NotSupportedException();
+
+            if(first == last)
+            {
+                first = last = null;
+            }
+            else
+            {
+                var second = first.next;
+                first.next = null;
+                first = second;
+            }
+
+         
+            count--;
+        }
+        public void removeLast()
+        {
+            if (isEmpty())
+                throw new NotSupportedException();
+
+
+            if (first == last)
+            {
+                first = last = null;
+
+            }
+            else
+            {
+                var previous = getPrevious(last);
+                last = previous;
+                last.next = null;
+            }
+
+         
+
+            count--;
+        }
+        private Node getPrevious(Node node)
+        {
+            var current = first;
+
+            while (current != null)
+            {
+                if (current.next == node)
+                {
+                    return current;
+                }
+                current = current.next;
+            }
+            return null;
+        }
+
+        public int size()
+        {
+            return count;
+        }
+
+        public int[] toArray()
+        {
+            int[] array = new int[count];
+            var current = first;
+            var index = 0;
+            while(current!= null)
+            {
+                array[index++] = current.value;
+                current = current.next;
+
+            }
+
+            return array;
         }
     }
 }

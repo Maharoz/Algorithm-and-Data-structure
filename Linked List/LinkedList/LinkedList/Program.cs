@@ -11,7 +11,9 @@ namespace LinkedList
             list.addLast(10);
             list.addLast(20);
             list.addLast(30);
-            Console.WriteLine(list.indexOf(10));
+            list.removeFirst();
+            var array = list.toArray();
+            Console.WriteLine(list.contains(10));
 
         }
     }
