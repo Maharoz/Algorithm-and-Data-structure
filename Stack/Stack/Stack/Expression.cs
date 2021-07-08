@@ -12,19 +12,16 @@ namespace Stack
 
             foreach(char ch in input)
             {
-                if (ch == '(' || ch=='<'||ch=='[' || ch=='{')
+                if (isLeftBracket(ch))
                     stack.Push(ch);
 
-                if (ch == ')' || ch == '>' || ch == ']' || ch == '}')
+                if (isRightBracker(ch))
                 {
                     if (stack.Count == 0)
                         return false;
                    var top= stack.Pop();
 
-                    if((ch==')' && top != '(') ||
-                       (ch == '>' && top != '<') ||
-                       (ch == ']' && top != '[') ||
-                       (ch =='}' && top!='{')) 
+                    if(bracketsMatch(top,ch))
                     {
                         return false;
                     }
@@ -32,6 +29,24 @@ namespace Stack
                     
             }
             return stack.Count == 0 ? true : false;
+        }
+
+        private bool isLeftBracket(char ch)
+        {
+            return ch == '(' || ch == '<' || ch == '[' || ch == '{';
+        }
+
+        private bool isRightBracker(char ch)
+        {
+            return ch == ')' || ch == '>' || ch == ']' || ch == '}';
+        }
+
+        private bool bracketsMatch(char left,char right)
+        {
+            return ((right == ')' && left != '(') ||
+                       (right == '>' && left != '<') ||
+                       (right == ']' && left != '[') ||
+                       (right == '}' && left != '{'));
         }
     }
 }
