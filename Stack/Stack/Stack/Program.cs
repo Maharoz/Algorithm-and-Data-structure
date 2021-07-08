@@ -6,9 +6,9 @@ namespace Stack
     {
         static void Main(string[] args)
         {
-            string str = "abcd";
-            StringReverser reverser = new StringReverser();
-            var result = reverser.reverse(str);
+            string str = "(1+2)";
+            Expression ex = new Expression();
+            var result = ex.isBalanced(str);
             Console.WriteLine(result);
         }
     }
