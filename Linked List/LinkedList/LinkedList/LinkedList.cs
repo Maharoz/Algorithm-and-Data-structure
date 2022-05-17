@@ -132,12 +132,10 @@ namespace LinkedList
             }
             return null;
         }
-
         public int size()
         {
             return count;
         }
-
         public int[] toArray()
         {
             int[] array = new int[count];
@@ -152,7 +150,6 @@ namespace LinkedList
 
             return array;
         }
-
         public void reverse()
         {
             if (isEmpty())
@@ -176,7 +173,6 @@ namespace LinkedList
             last.next = null;
             first = previous;
         }
-
         public int getKthFromTheEnd(int k)
         {
 
