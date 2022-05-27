@@ -12,6 +12,8 @@ namespace Heaps
             h.insert(17);
             h.insert(4);
             h.insert(22);
+
+            h.remove();
         }
     }
 }
