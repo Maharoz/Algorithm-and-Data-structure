@@ -123,7 +123,7 @@ namespace Building_A_Graph
         }
 
         List<Node> l = new List<Node>();
-        public void traverseDepthFirst(string root)
+        public void traverseDepthFirstRec(string root)
         {
           var node=  _nodes.GetValueOrDefault(root);
             if (node == null)
@@ -143,6 +143,43 @@ namespace Building_A_Graph
                 if (!visited.Contains(x))
                 {
                     traverseDepthFirst(x, l);
+                }
+            }
+        }
+
+
+        List<Node> visited = new List<Node>();
+        public void traverseDepthFirst(string root)
+        {
+            var node = _nodes.GetValueOrDefault(root);
+            if (node == null)
+            {
+                return;
+            }
+
+            Stack<Node> stack = new Stack<Node>();
+            stack.Push(node);
+
+            while (stack.Count != 0)
+            {
+                var current = stack.Pop();
+
+                if (visited.Contains(current))
+                {
+                    continue;
+                }
+                else
+                {
+                    Console.WriteLine(current._label);
+                    visited.Add(current);
+                }
+
+                foreach(var neighbour in _edges.GetValueOrDefault(current._label))
+                {
+                    if (!visited.Contains(neighbour))
+                    {
+                        stack.Push(neighbour);
+                    }
                 }
             }
         }

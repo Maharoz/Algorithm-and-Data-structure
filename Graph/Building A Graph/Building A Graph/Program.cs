@@ -17,7 +17,7 @@ namespace Building_A_Graph
             graph.addEdge("B", "D");
             graph.addEdge("D", "C");
             // graph.removeNode("B");
-            graph.traverseDepthFirst("G");
+            graph.traverseDepthFirst("A");
             graph.print();
         }
     }
