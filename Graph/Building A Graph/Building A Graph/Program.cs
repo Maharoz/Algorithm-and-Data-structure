@@ -8,16 +8,16 @@ namespace Building_A_Graph
         {
            // Console.WriteLine("Hello World!");
            var graph = new Graph();
+            graph.addNode("X");
             graph.addNode("A");
             graph.addNode("B");
-            graph.addNode("C");
-            graph.addNode("D");
-            graph.addEdge("A", "B");
-            graph.addEdge("A", "C");
-            graph.addEdge("B", "D");
-            graph.addEdge("D", "C");
+            graph.addNode("P");
+            graph.addEdge("X", "A");
+            graph.addEdge("X", "B");
+            graph.addEdge("A", "P");
+            graph.addEdge("B", "P");
             // graph.removeNode("B");
-            graph.traverseDepthFirst("A");
+            var list= graph.topologicalSort();
             graph.print();
         }
     }
