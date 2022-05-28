@@ -121,5 +121,30 @@ namespace Building_A_Graph
             }
 
         }
+
+        List<Node> l = new List<Node>();
+        public void traverseDepthFirst(string root)
+        {
+          var node=  _nodes.GetValueOrDefault(root);
+            if (node == null)
+            {
+                return;
+            }
+            traverseDepthFirst(_nodes.GetValueOrDefault(root),l );
+        }
+
+        private void traverseDepthFirst(Node root, List<Node> visited)
+        {
+            Console.WriteLine(root._label);
+            visited.Add(root);
+
+            foreach(var x in _edges.GetValueOrDefault(root._label))
+            {
+                if (!visited.Contains(x))
+                {
+                    traverseDepthFirst(x, l);
+                }
+            }
+        }
     }
 }
