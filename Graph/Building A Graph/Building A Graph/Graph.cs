@@ -215,11 +215,7 @@ namespace Building_A_Graph
 
             foreach (var node in _nodes.Values)
             {
-                //if (!visited.Contains(node))
-                //{
                     topologicalSort(node, visitedNodes, stack);
-                //}
-                   
             }
 
             List<string> sorted = new List<string>();
@@ -255,6 +251,65 @@ namespace Building_A_Graph
             }
 
             stack.Push(node);
+        }
+
+        public bool hasCycle()
+        {
+            List<Node> all = new List<Node>();
+
+            foreach(var x in _nodes)
+            {
+                all.Add(x.Value);
+            }
+            // all.Add(_nodes)
+
+
+            List<Node> visiting = new List<Node>();
+
+            List<Node> visited = new List<Node>();
+
+            while (all.Count != 0)
+            {
+                var current = all.ToArray()[0];
+               if( hasCycle(current, all, visiting, visited))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool hasCycle(Node node, List<Node> all, List<Node> visiting,
+            List<Node> visited)
+        {
+            all.Remove(node);
+            visiting.Add(node);
+
+            foreach(var neighbour in _edges.GetValueOrDefault(node._label))
+            {
+                if (visited.Any(x=>x._label==neighbour._label))
+                {
+                    continue;
+                }
+
+                if (visiting.Any(x => x._label == neighbour._label))
+                {
+                    return true;
+                }
+
+               var result= hasCycle(neighbour, all, visiting, visited);
+
+                if (result)
+                {
+                    return true;
+                }
+
+               
+            }
+            visiting.Remove(node);
+            visited.Add(node);
+            return false;
         }
     }
 }
