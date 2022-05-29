@@ -6,18 +6,13 @@ namespace Building_A_Graph
     {
         static void Main(string[] args)
         {
-           // Console.WriteLine("Hello World!");
-           var graph = new Graph();
+           var graph = new WeightedGraph();
+
             graph.addNode("A");
             graph.addNode("B");
             graph.addNode("C");
-            graph.addEdge("A", "B");
-            graph.addEdge("B", "C");
-            graph.addEdge("C", "A");
-            // graph.removeNode("B");
-            //var list= graph.topologicalSort();
-            bool x= graph.hasCycle();
-            Console.WriteLine(x);
+            graph.addEdge("A", "B",3);
+            graph.addEdge("A", "C",2);
             graph.print();
         }
     }
