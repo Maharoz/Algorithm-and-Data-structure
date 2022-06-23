@@ -36,6 +36,11 @@ namespace Trie
             {
                 return children[ch];
             }
+
+            public Node[] getChildren()
+            {
+                return children.Values.ToArray();
+            }
         }
 
         private Node root = new Node(' ');
@@ -57,6 +62,38 @@ namespace Trie
             }
 
             current.isEndOfWord = true;
+        }
+
+        public bool contains(string word)
+        {
+            if (word == null)
+            {
+                return false;
+            }
+            var current = root;
+
+            foreach(var ch in word.ToCharArray())
+            {
+                if (!current.hasChild(ch))
+                {
+                    return false;
+                }
+                current = current.getChild(ch);
+            }
+            return current.isEndOfWord;
+        }
+
+        public void traverse()
+        {
+            traverse(root);
+        }
+        private void traverse(Node root)
+        {
+            Console.WriteLine(root.value);
+            foreach(var child in root.getChildren())
+            {
+                traverse(child);
+            }
         }
     }
 }

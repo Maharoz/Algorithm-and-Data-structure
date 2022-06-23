@@ -8,8 +8,9 @@ namespace Trie
         {
             // Console.WriteLine("Hello World!");
             var trie = new Trie();
-            trie.insert("cat");
-            trie.insert("can");
+            trie.insert("care");
+            //trie.insert("can");
+            trie.traverse();
         }
     }
 }
