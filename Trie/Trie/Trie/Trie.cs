@@ -12,7 +12,8 @@ namespace Trie
         public class Node
         {
             public char value;
-            public Node[] children = new Node[ALPHABET_SIZE];
+          //  public Node[] children = new Node[ALPHABET_SIZE];
+            public Dictionary<char,Node> children = new Dictionary<char, Node>();
             public bool isEndOfWord;
 
             public Node(char value)
@@ -21,7 +22,20 @@ namespace Trie
 
             }
 
+            public bool hasChild(char ch)
+            {
+                return children.ContainsKey(ch);
+            }
 
+            public void addChild(char ch)
+            {
+                children.Add(ch, new Node(ch));
+            }
+
+            public Node getChild(char ch)
+            {
+                return children[ch];
+            }
         }
 
         private Node root = new Node(' ');
@@ -34,13 +48,12 @@ namespace Trie
 
             foreach (var ch in word.ToCharArray())
             {
-                var index = ch - 'a';
-                if (current.children[index] == null)
+                if (!current.hasChild(ch))
                 {
-                    current.children[index] = new Node(ch);
+                    current.addChild(ch);
                     
                 }
-                current = current.children[index];
+                current = current.getChild(ch);
             }
 
             current.isEndOfWord = true;
