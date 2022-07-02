@@ -41,6 +41,17 @@ namespace Trie
             {
                 return children.Values.ToArray();
             }
+
+            //public bool hasChildren()
+            //{
+            //    return !children.is
+
+            //}
+
+            public void removeChild(char ch)
+            {
+                children.Remove(ch);
+            }
         }
 
         private Node root = new Node(' ');
@@ -93,6 +104,35 @@ namespace Trie
             foreach(var child in root.getChildren())
             {
                 traverse(child);
+            }
+        }
+
+        public void remove(string word)
+        {
+            remove(root, word,0);
+        }
+
+        private void remove(Node root,string word,int index)
+        {
+            if (index == word.Length)
+            {
+                root.isEndOfWord = false;
+                return;
+            }
+            
+            var ch = word.ElementAt(index);
+            var child = root.getChild(ch);
+
+            if (child == null)
+            {
+                return;
+            }
+
+            remove(child, word, index + 1);
+
+            if (child.getChildren().Length == 0 && !child.isEndOfWord)
+            {
+                root.removeChild(ch);
             }
         }
     }

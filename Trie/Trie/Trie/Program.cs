@@ -9,8 +9,11 @@ namespace Trie
             // Console.WriteLine("Hello World!");
             var trie = new Trie();
             trie.insert("care");
-            //trie.insert("can");
-            trie.traverse();
+            trie.insert("car");
+            trie.remove("car");
+           // trie.traverse();
+            Console.WriteLine(trie.contains("car"));
+            Console.WriteLine(trie.contains("care"));
         }
     }
 }
