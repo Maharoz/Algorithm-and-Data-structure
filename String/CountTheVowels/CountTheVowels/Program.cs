@@ -11,6 +11,10 @@ namespace CountTheVowels
         }
         public static int count(string s)
         {
+            if(s == null)
+            {
+                return 0;
+            }
             int count = 0;
             string vowels = "aeiou";
             foreach(char c in s)
