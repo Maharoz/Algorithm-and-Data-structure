@@ -161,11 +161,13 @@ namespace BuildingATree
                 && isBinarySearchTree(root.rightChild, root.value+ 1,max);
         }
 
-        public void printNodesAtDistance(int distance)
+        public List<int> printNodesAtDistance(int distance)
         {
-            printNodesAtDistance(root, distance);
+            List<int> list = new List<int>();
+            printNodesAtDistance(root, distance,list);
+            return list;
         }
-        private void printNodesAtDistance(Node root,int distance)
+        private void printNodesAtDistance(Node root,int distance, List<int> list)
         {
             if(root == null)
             {
@@ -173,13 +175,24 @@ namespace BuildingATree
             }
             if (distance == 0)
             {
+                list.Add(root.value);
                 Console.WriteLine(root.value);
                 return;
             }
 
-            printNodesAtDistance(root.leftChild, distance - 1);
-            printNodesAtDistance(root.rightChild, distance - 1);
+            printNodesAtDistance(root.leftChild, distance - 1,list);
+            printNodesAtDistance(root.rightChild, distance - 1, list);
             }
+
+        //public void travelLevelOrder()
+        //{
+        //    for(int i = 0; i <= height(); i++)
+        //    {
+        //        int list = printNodesAtDistance(i);
+
+        //    }
+        //}
+
         }
     }
 
