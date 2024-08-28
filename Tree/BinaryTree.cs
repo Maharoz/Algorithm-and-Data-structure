@@ -100,13 +100,37 @@ namespace Tree
 				{
 					queue.Enqueue(temp.left);
 				}
-				 if (temp.right != null)
+				if (temp.right != null)
 				{
-				
-				  queue.Enqueue(temp.right);
-				
+
+					queue.Enqueue(temp.right);
+
 				}
 
+			}
+		}
+
+		public void DFSWithoutRecursion()
+		{
+			Stack<TreeNode> stack = new Stack<TreeNode>();
+			TreeNode temp;
+
+			if (root != null)
+			{
+				stack.Push(root);
+			}
+			while (stack.Count > 0)
+			{
+				temp = stack.Pop();
+				Console.WriteLine(temp.value);
+				if(temp.left != null)
+				{
+					stack.Push(temp.left);
+				}
+				if(temp.right != null)
+				{
+					stack.Push(temp.right);
+				}
 			}
 		}
 	}
