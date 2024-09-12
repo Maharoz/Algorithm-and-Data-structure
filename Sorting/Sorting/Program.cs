@@ -4,8 +4,8 @@
 	{
 		static void Main(string[] args)
 		{
-			int[] array = new int[] {6,4,5,1,8,2,9,7,3,10};
-			QuickSort.sort(array);
+			int[] array = new int[] {5,6,2,4,7,3,1};
+			SelectionSort.Sort(array);
 			for (int i = 0; i < array.Length; i++) {
 				Console.WriteLine(array[i]);
 			}
