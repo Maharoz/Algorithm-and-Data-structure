@@ -4,8 +4,8 @@
 	{
 		static void Main(string[] args)
 		{
-		//	int x= fibonaci(6);
-           // Console.WriteLine(x);
+			int x= (int)TabulationMethod.fibonaci(14521);
+            Console.WriteLine(x);
 		}
 
 	
